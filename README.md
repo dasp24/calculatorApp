@@ -1,26 +1,28 @@
 
-# React Project Starter
+Planning
+Print/save this list Decide what to build Draw your app on paper 
+Break out components 
+Name your components
 
-This starter project has everything you need to start writing React as fast as possible. 
+Setup
+Create your app directory 
+Run your app
 
-No need for configuration, works out of the box by installing dependencies and starting the development server with `npm start`.
+Static Layout
+Make blank components 
+Render all components 
+Install React DevTools
+Write static render() methods
 
-Once you clone this project you can make it your own by removing the existing `.git` folder and initialising a new one.
-
-```
-rm -rf .git
-git init
-git add .
-git commit -m 'Initial commit'
-```
-
-If you want to push this project to your GitHub account, create a new repository, copy its URL and add an `origin` remote:
-
-```
-git remote add origin <your-repo-url>
-git push -u origin master
-```
-
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
-
+Dynamic Layout 
+Add props
+Add JSX loops
+Add event handlers
+Add props for event handlers
+State & Logic
+Load state from JSON if necessary Add application logic functions Add npm dependencies
+Set initial state
+Add state changes with setState Style
+Add classNames Create .css files Import .css files Write component CSS Write application CSS
+Deployment
+Deploy to GitHub pages Share the link
