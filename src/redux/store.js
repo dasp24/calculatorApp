@@ -4,30 +4,37 @@ import {
 
 const SET_OPERATION = 'SET_OPERATION';
 
-const SET_RUNNING_TOTAL = 'SET_RUNNING_TOTAL';
+const APPEND_VALUE = 'APPEND_VALUE';
 
 const SET_OPERAND = 'SET_OPERAND';
 
 const EXECUTE_OPERATION = 'EXECUTE_OPERATION';
 
-const setOperation = (operation) => {
+export const setOperation = (operation) => {
     return {
         type: SET_OPERATION,
         operation: operation
     }
 }
 
-const setRunningTotal = (value) => {
+export const appendValue = (value) => {
     return {
-        type: SET_RUNNING_TOTAL,
+        type: APPEND_VALUE,
         value: value
     }
 }
 
-const setOperand = (value) => {
+
+export const setOperand = (value) => {
     return {
         type: SET_OPERAND,
         value: value
+    }
+}
+
+export const executeOperation = () => {
+    return {
+        type: EXECUTE_OPERATION,
     }
 }
 
@@ -38,9 +45,9 @@ const setOperand = (value) => {
 // second arg is the action, which is one of the consts above set_op or whatever, updates the state mf
 
 const initialState = {
-    runningTotal: 0,
+    runningTotal: '0',
     operation: null,
-    operand: null
+    operand: '0'
 };
 
 function reducer(state = initialState, action) {
@@ -52,11 +59,12 @@ function reducer(state = initialState, action) {
                 ...state,
                 operation: action.operation
             }
-        case SET_RUNNING_TOTAL:
-            return {
-                ...state,
-                runningTotal: action.value
-            }
+        case APPEND_VALUE:
+            const newState = {...state}
+            if (newState.operation === null)
+            newState.runningTotal = calculateAppendValue(state.runningTotal,action.value)
+            else newState.operand = calculateAppendValue(state.operand,action.value)
+            return newState;
         case SET_OPERAND:
             return {
                 ...state,
@@ -65,7 +73,7 @@ function reducer(state = initialState, action) {
         case EXECUTE_OPERATION:
             return { ...state,
                 operation: null,
-                operand: null,
+                operand: '0',
                 runningTotal: calculateTotal(state.runningTotal, state.operation, state.operand)
             }
             // also going to have a default, if it cant find the actions it does something specfic, like null or 0 or again.
@@ -87,6 +95,12 @@ function calculateTotal(runningTotal, operation, operand) {
         default:
             return runningTotal
     }
+}
+
+function calculateAppendValue (runningTotal, value) {
+    if (runningTotal === '0') return value;
+    if (runningTotal.includes('.') && value === '.') return runningTotal;
+    else return runningTotal + value;
 }
 
 export default createStore(reducer);

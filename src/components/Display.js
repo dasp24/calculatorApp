@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 class Display extends React.Component {
     render() {
         return (
-        <h2>{this.props.runningTotal}</h2>
+        <h2>{this.props.display}</h2>
         );
     }
 }
@@ -12,7 +12,7 @@ class Display extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        runningTotal: state.runningTotal
+        display: (!state.operation || state.operand === '0') ? state.runningTotal : state.operand
     };
 }
 
