@@ -45,7 +45,6 @@ export function reducer(state = initialState, action) {
                 runningTotal: calculateTotal(state.runningTotal, state.operation, state.operand)
             }
         case IMMEDIATE_EXECUTE:
-
             return { ...state,
                 operation: null,
                 operand: '0',
@@ -73,10 +72,10 @@ function calculateTotal(runningTotal, operation, operand) {
 }
 
 function calculateAppendValue(runningTotal, value) {
-    if (runningTotal === '0') return value;
+    if (runningTotal === '0' || typeof runningTotal === 'number') return value;
     if (runningTotal.includes('.') && value === '.') return runningTotal;
-    else if (runningTotal && value) return runningTotal + value;
-    else return runningTotal;
+    else return String(runningTotal) + String(value);
+
 }
 
 function immediateExecute(runningTotal, operation) {
