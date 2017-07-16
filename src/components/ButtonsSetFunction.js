@@ -12,10 +12,8 @@ class ButtonsSetFunction extends React.Component {
                 <button type="button" onClick={() => {this.props.setOperation('-');}}>-</button>
                 <button type="button" onClick={() => {this.props.setOperation('/');}}>/</button>
                 <button type="button" onClick={() => {this.props.setOperation('*');}}>*</button>
-                <button type="button" onClick={() => {this.props.setOperation('%');}}>%</button>
-                <button type="button" onClick={() => {this.props.setOperation('+/-');}}>+/-</button>
             </div>
-        )
+        );
     }
 }
 
