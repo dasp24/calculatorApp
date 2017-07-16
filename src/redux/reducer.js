@@ -21,11 +21,15 @@ export function reducer(state = initialState, action) {
     // follows the same pattern
     // switch statement - or similar logic
     switch (action.type) {
-        case SET_OPERATION:
-            return {
-                ...state,
-                operation: action.operation
+        case SET_OPERATION: {
+            const newState = {...state};
+            if (newState.operation === null) newState.operation = action.operation
+            else {
+                newState.operation = action.operation;
+                newState.runningTotal = calculateTotal(state.runningTotal, state.operation, state.operand)
             }
+            return newState
+        }
         case APPEND_VALUE:
             const newState = { ...state
             }
@@ -40,8 +44,6 @@ export function reducer(state = initialState, action) {
             }
         case EXECUTE_OPERATION:
             return { ...state,
-                operation: null,
-                operand: '0',
                 runningTotal: calculateTotal(state.runningTotal, state.operation, state.operand)
             }
         case IMMEDIATE_EXECUTE:
