@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import store from './redux/store';
 
-import Calculater from './components/Calculater.js';
-
-ReactDOM.render(<Calculater/>, 
+import Calculator from './components/Calculator.js';
+ReactDOM.render(<Provider store={store}><Calculator/></Provider>, 
 document.getElementById('root'));

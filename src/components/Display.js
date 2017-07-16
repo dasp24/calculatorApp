@@ -1,11 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 class Display extends React.Component {
     render() {
         return (
-            <h2>This is the display</h2>
-        )
+        <h2>{this.props.runningTotal}</h2>
+        );
     }
 }
+// state.runningTotal is importante
 
-export default Display;
+function mapStateToProps(state) {
+    return {
+        runningTotal: state.runningTotal
+    };
+}
+
+export default connect(mapStateToProps)(Display);
