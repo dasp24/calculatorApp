@@ -2,9 +2,16 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 class Display extends React.Component {
+    constructor() {
+        super();
+        this.style = {
+            width: '300px',
+            border: '1px solid green',
+            padding: '1px'};
+    }
     render() {
         return (
-        <h2>{this.props.display}</h2>
+        <h2 style={this.style}>{this.props.display}</h2>
         );
     }
 }
@@ -19,7 +26,7 @@ function mapStateToProps(state) {
         return {
         display:  state.runningTotal 
     };
-    else return { display: state.operand }
+    else return { display: state.operand };
 }
 
 export default connect(mapStateToProps)(Display);

@@ -19,8 +19,6 @@ const initialState = {
     runningTotal: '0',
     operation: null,
     operand: '0',
-    tempOperation: null,
-    tempRunningTotal: '0'
 };
 
 export function reducer(state = initialState, action) {
