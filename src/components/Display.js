@@ -12,7 +12,7 @@ class Display extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        display: (!state.operation || state.operand === '0'|| (state.operand && state.operation && state.runningTotal)) ? state.runningTotal : state.operand
+        display: (!state.operation || state.operand === '0' || typeof state.runningTotal === 'number') ? state.runningTotal : state.operand
     };
 }
 
