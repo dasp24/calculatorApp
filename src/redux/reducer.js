@@ -12,7 +12,7 @@ import {
 
 import {
     operation,
-    result
+    updateInput
 } from './helperFuncs'
 
 const initialState = {
@@ -24,6 +24,7 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
+    console.log(state)
     switch (action.type) {
         case SET_OPERATION:
             {
@@ -32,7 +33,7 @@ export function reducer(state = initialState, action) {
             }
         case APPEND_VALUE:
             {
-                return result({ ...state
+                return updateInput({ ...state
                 }, action)
             }
         case SET_OPERAND:

@@ -11,9 +11,15 @@ class Display extends React.Component {
 // state.runningTotal is importante
 
 function mapStateToProps(state) {
+    if (!state.operation || state.operand === '0')
     return {
-        display: (!state.operation || state.operand === '0' || typeof state.runningTotal === 'number') ? state.runningTotal : state.operand
+        display:  state.runningTotal 
     };
+    else if (typeof state.runningTotal === 'number' && typeof state.operand === 'number')
+        return {
+        display:  state.runningTotal 
+    };
+    else return { display: state.operand }
 }
 
 export default connect(mapStateToProps)(Display);
