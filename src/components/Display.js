@@ -7,11 +7,12 @@ class Display extends React.Component {
         this.style = {
             width: '299px',
             display: 'inline-block',
-            textalign: 'right',
+            size: '20px',
             height: '40px',
             border: '1px solid black',
             background:'#C0C0C0',
-            color: 'white'
+            color: 'white',
+            textalign: 'right'
         };
     }
     render() {

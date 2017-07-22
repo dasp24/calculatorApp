@@ -19,7 +19,7 @@ class ButtonsSetEquation extends React.Component {
             background: 'orange',
             color:'white',
             border: '1px solid black',
-            padding: '15px 32px',
+            padding: '15px 32.6px',
             textalign: 'center',
             textdecoration: 'none',
             display: 'inline-block',
