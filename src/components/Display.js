@@ -5,9 +5,14 @@ class Display extends React.Component {
     constructor() {
         super();
         this.style = {
-            width: '300px',
-            border: '1px solid green',
-            padding: '1px'};
+            width: '299px',
+            display: 'inline-block',
+            textalign: 'right',
+            height: '40px',
+            border: '1px solid black',
+            background:'#C0C0C0',
+            color: 'white'
+        };
     }
     render() {
         return (
