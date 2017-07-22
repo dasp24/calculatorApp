@@ -7,8 +7,8 @@ class Display extends React.Component {
         this.textStyle = {
             position:'relative',
             fontfamily: 'serif',
-            left:'108px',
-            color:'white'
+            left:'80px',
+            color:'black'
         };
         this.stylings = {
             width: '299px',
