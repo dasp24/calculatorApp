@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {appendValue} from '../redux/store';
+import {appendValue,setOperation,executeOperation} from '../redux/store';
 
 class ButtonsSetNumbers extends React.Component {
     constructor() {
