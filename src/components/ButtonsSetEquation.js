@@ -4,14 +4,15 @@ import {connect} from 'react-redux';
 import {executeOperation, immediateExecute} from '../redux/store';
 
 class ButtonsSetEquation extends React.Component {
+    constructor() {
     render() {
         return (
             <div>
-                <h2>This executes what i want</h2>
-                 <button type="button" onClick={() => {this.props.executeOperation();}}>=</button>
-                 <button type="button" onClick={() => {this.props.immediateExecute('%');}}>%</button>
-                 <button type="button" onClick={() => {this.props.immediateExecute('+/-');}}>+/-</button>
-                 <button type="button" onClick={() => {this.props.immediateExecute('c');}}>c</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('%');}}>%</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('+/-');}}>+/-</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('c');}}>c</button>
+                 <button style ={this.funkyStyle} type="button" onClick={() => {this.props.setOperation('/');}}>/</button>
+
             </div>
         );
     }
