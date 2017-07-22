@@ -77,6 +77,12 @@ function mapDispatchToProps(dispatch) {
     return {
         appendValue: (value) => {
             dispatch(appendValue(value));
+        },
+        setOperation: (value) => {
+            dispatch(setOperation(value));
+        },
+          executeOperation: () => {
+            dispatch(executeOperation());
         }
     };
 }
