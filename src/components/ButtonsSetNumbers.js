@@ -4,6 +4,40 @@ import {connect} from 'react-redux';
 import {appendValue} from '../redux/store';
 
 class ButtonsSetNumbers extends React.Component {
+    constructor() {
+        super();
+        this.style = {
+            width: '360px',
+            float: 'left'
+        };
+          this.numberStyle = {
+                background: '#E8E8E8',
+                border: '1px solid black',
+                padding: '15px 32px',
+                textalign: 'center',
+                textdecoration: 'none',
+                display: 'inline-block',
+                fontsize: '16px'
+        };
+            this.zeroStyle = {
+                background: '#F5F5F5',
+                border: '1px solid black',
+                padding: '15px 70px',
+                textalign: 'center',
+                display: 'inline-block',
+                fontsize: '16px'
+        };
+            this.funkyStyle = {
+            background: 'orange',
+            color:'white',
+            border: '1px solid black',
+            padding: '15px 32px',
+            textalign: 'center',
+            textdecoration: 'none',
+            display: 'inline-block',
+            fontsize: '25px'
+        };
+    }
     render() {
         return (
             <div>
