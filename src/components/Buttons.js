@@ -1,16 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {appendValue,setOperation,executeOperation} from '../redux/store';
+import {appendValue,setOperation,executeOperation,immediateExecute} from '../redux/store';
 
-class ButtonsSetNumbers extends React.Component {
+class Buttons extends React.Component {
     constructor() {
         super();
         this.style = {
             width: '360px',
             float: 'left'
         };
-          this.numberStyle1 = {
+        this.equationStyle = {
+                background: '#F8F8F8',
+                border: '1px solid black',
+                padding: '15px 32px',
+                textalign: 'center',
+                textdecoration: 'none',
+                display: 'inline-block',
+                fontsize: '16px'
+        };
+        this.numberStyle1 = {
                 background: '#E8E8E8',
                 border: '1px solid black',
                 padding: '15px 32px',
@@ -20,7 +29,7 @@ class ButtonsSetNumbers extends React.Component {
                 fontsize: '16px',
                 width:'75px'
         };
-                      this.numberStyle2 = {
+        this.numberStyle2 = {
                 background: '#E8E8E8',
                 border: '1px solid black',
                 padding: '15px 32px',
@@ -30,7 +39,7 @@ class ButtonsSetNumbers extends React.Component {
                 fontsize: '16px',
                 width:'81.5px'
         };
-                      this.numberStyle3 = {
+        this.numberStyle3 = {
                 background: '#E8E8E8',
                 border: '1px solid black',
                 padding: '15px 32px',
@@ -40,7 +49,7 @@ class ButtonsSetNumbers extends React.Component {
                 fontsize: '16px',
                 width:'72px'
         };
-            this.zeroStyle = {
+        this.zeroStyle = {
                 background: '#E8E8E8',
                 border: '1px solid black',
                 padding: '15px 74px',
@@ -64,11 +73,16 @@ class ButtonsSetNumbers extends React.Component {
         return (
             <div>
                 <div style={this.style}>
-                    <button style ={this.numberStyle1} type="button" onClick={() => this.props.appendValue('7')}>7</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('%');}}>%</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('+/-');}}>+/-</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('c');}}>c</button>
+                 <button style ={this.funkyStyle} type="button" onClick={() => {this.props.setOperation('/');}}>/</button>
+            </div>
+                <div style={this.style}>
+                    <button style ={this.numberStyle1} className=''type="button" onClick={() => this.props.appendValue('7')}>7</button>
                     <button style ={this.numberStyle2} type="button" onClick={() => this.props.appendValue('8')}>8</button>
                     <button style ={this.numberStyle3} type="button" onClick={() => this.props.appendValue('9')}>9</button>
                     <button style ={this.funkyStyle} type="button" onClick={() => {this.props.setOperation('*');}}>X</button>
-
                 </div>
                 <div style={this.style}>
                     <button style ={this.numberStyle1} type="button" onClick={() => this.props.appendValue('4')}>4</button>
@@ -105,8 +119,11 @@ function mapDispatchToProps(dispatch) {
         },
           executeOperation: () => {
             dispatch(executeOperation());
+        },
+          immediateExecute:(value) => {
+            dispatch(immediateExecute(value));
         }
     };
 }
 
-export default connect(null,mapDispatchToProps)(ButtonsSetNumbers);
+export default connect(null,mapDispatchToProps)(Buttons);
