@@ -8,16 +8,17 @@ class Buttons extends React.Component {
         super();
         this.style = {
             width: '360px',
-            float: 'left'
+            float: 'left',
+            fontfamily:'Arial',
+            fontsize:'20px'
         };
         this.equationStyle = {
-                background: '#F8F8F8',
+                fontsize:'43px',
                 border: '1px solid black',
                 padding: '15px 32px',
                 textalign: 'center',
                 textdecoration: 'none',
-                display: 'inline-block',
-                fontsize: '16px'
+                display: 'inline-block'
         };
         this.numberStyle1 = {
                 background: '#E8E8E8',
@@ -26,7 +27,6 @@ class Buttons extends React.Component {
                 textalign: 'center',
                 textdecoration: 'none',
                 display: 'inline-block',
-                fontsize: '16px',
                 width:'75px'
         };
         this.numberStyle2 = {
@@ -36,7 +36,6 @@ class Buttons extends React.Component {
                 textalign: 'center',
                 textdecoration: 'none',
                 display: 'inline-block',
-                fontsize: '16px',
                 width:'81.5px'
         };
         this.numberStyle3 = {
@@ -46,7 +45,6 @@ class Buttons extends React.Component {
                 textalign: 'center',
                 textdecoration: 'none',
                 display: 'inline-block',
-                fontsize: '16px',
                 width:'72px'
         };
         this.zeroStyle = {
@@ -55,7 +53,6 @@ class Buttons extends React.Component {
                 padding: '15px 74px',
                 textalign: 'center',
                 display: 'inline-block',
-                fontsize: '16px'
         };
         this.funkyStyle = {
             background: 'orange',

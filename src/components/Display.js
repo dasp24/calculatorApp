@@ -14,14 +14,13 @@ class Display extends React.Component {
             width: '299px',
             height: '60px',
             border: '1px solid black',
-            background:'#C0C0C0',
-            color: 'white',
+            background:'#39CCCC'
         };
     }
     render() {
         return (
-            <div style={this.stylings}>
-        <h3 style={this.textStyle}>{this.props.display}</h3>
+        <div style={this.stylings}>
+            <h3 style={this.textStyle}>{this.props.display}</h3>
         </div>
         );
     }

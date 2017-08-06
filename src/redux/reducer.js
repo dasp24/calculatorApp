@@ -22,7 +22,6 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
-    console.log(state)
     switch (action.type) {
         case SET_OPERATION:
             {
