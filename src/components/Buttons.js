@@ -70,9 +70,9 @@ class Buttons extends React.Component {
         return (
             <div>
                 <div style={this.style}>
-                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('c');}}>c</button>
-                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('+/-');}}>+/-</button>
                  <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('%');}}>%</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('+/-');}}>+/-</button>
+                 <button type="button" style={this.equationStyle} onClick={() => {this.props.immediateExecute('c');}}>c</button>
                  <button style ={this.funkyStyle} type="button" onClick={() => {this.props.setOperation('/');}}>/</button>
             </div>
                 <div style={this.style}>
