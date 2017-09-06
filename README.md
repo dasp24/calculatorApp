@@ -19,7 +19,7 @@ Follow these steps to set up this project locally:
 
 The webpack will automtically compile and will open a webpage on http://localhost:3000/
 
-Alternatively you can view the app <a href="">here</a>
+Alternatively you can view the app <a href="https://hidden-thicket-85815.herokuapp.com/">here</a>
 
 ## Running tests
 
