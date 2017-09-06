@@ -19,7 +19,7 @@ Follow these steps to set up this project locally:
 
 The webpack will automtically compile and will open a webpage on http://localhost:3000/
 
-Alternatively yoy can view the app <a href="">here</a>
+Alternatively you can view the app <a href="">here</a>
 
 ## Running tests
 
