@@ -1,23 +1,22 @@
-export function operation(state, action) {
-    const newState = { ...state
-    }
-        newState.operation = action.operation
-        return newState;
-}
+const operation = (state, action) => {
+    state.operation = action.operation;
+    return state;
+};
 
-export function updateInput(state, action) {
-    const newState = { ...state
-    }
-    if (newState.operation === null)
-        newState.runningTotal = calculateAppendValue(state.runningTotal, action.value)
-    else newState.operand = calculateAppendValue(state.operand, action.value)
-    return newState;
-
-}
+const updateInput = (state, action) => {
+    if (state.operation === null)
+        state.runningTotal = calculateAppendValue(state.runningTotal, action.value)
+    else state.operand = calculateAppendValue(state.operand, action.value)
+    return state;
+};
 
 function calculateAppendValue(runningTotal, value) {
     if (runningTotal === '0' || typeof runningTotal === 'number') return value;
     if (runningTotal.includes('.') && value === '.') return runningTotal;
     else return String(runningTotal) + String(value);
-
 }
+
+module.exports = {
+    operation, 
+    updateInput
+};
