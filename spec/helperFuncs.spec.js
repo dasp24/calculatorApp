@@ -77,7 +77,7 @@ describe('updateInput', () => {
             value: '9'
         };
         expect(updateInput(state, op).runningTotal).to.equal('1');
-        expect(updateInput(state, op).runningTotal).to.equal('11');        
+        expect(updateInput(state, op).runningTotal).to.equal('11');
         expect(updateInput(state, op2).runningTotal).to.equal('119');
     });
     it('updates running total correctly - .', () => {
@@ -90,7 +90,44 @@ describe('updateInput', () => {
             type: 'APPEND_VALUE',
             value: '.'
         };
+        const op2 = {
+            type: 'APPEND_VALUE',
+            value: '2'
+        };
         expect(updateInput(state, op).runningTotal).to.equal('.');
-        
+        expect(updateInput(state, op).runningTotal).to.equal('.');
+        expect(updateInput(state, op2).runningTotal).to.equal('.2');
+    });
+    it('updates operand correctly', () => {
+        const state = {
+            runningTotal: '12',
+            operation: '*',
+            operand: '0'
+        };
+        const op = {
+            type: 'APPEND_VALUE',
+            value: '1'
+        };
+        const op2 = {
+            type: 'APPEND_VALUE',
+            value: '.'
+        };
+        expect(updateInput(state, op).operand).to.equal('1');
+        expect(updateInput(state, op2).operand).to.equal('1.');
+        expect(updateInput(state, op).operand).to.equal('1.1');
+    });
+});
+describe('calculateTotal', () => {
+    it('returns the total - case(+)', () => {
+        expect(calculateTotal(2,'+',3)).to.equal(5);
+        expect(calculateTotal(10,'+',10)).to.equal(20);
+        expect(calculateTotal(0,'+',10)).to.equal(10);
+        expect(calculateTotal(10,'+',0)).to.equal(10);
+    });
+    it('returns the total - case(-)', () => {
+        expect(calculateTotal(2,'-',3)).to.equal(-1);
+        expect(calculateTotal(10,'-',10)).to.equal(0);
+        expect(calculateTotal(0,'-',10)).to.equal(-10);
+        expect(calculateTotal(10,'-',0)).to.equal(10);
     });
 });
