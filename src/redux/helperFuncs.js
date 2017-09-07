@@ -7,8 +7,8 @@ const operation = (state, action) => {
 
 const updateInput = (state, action) => {
     if (state.operation === null)
-        state.runningTotal = calculateAppendValue(state.runningTotal, action.value)
-    else state.operand = calculateAppendValue(state.operand, action.value)
+        state.runningTotal = calculateAppendValue(state.runningTotal, action.value);
+    else state.operand = calculateAppendValue(state.operand, action.value);
     return state;
 };
 
@@ -40,7 +40,7 @@ const immediateExecute = (runningTotal, operation) => {
         case '+/-':
             return runningTotal * -1;
         case 'c':
-            return '0';
+            return 0;
         default:
             return runningTotal;
     }
