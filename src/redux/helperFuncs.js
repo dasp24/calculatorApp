@@ -16,7 +16,37 @@ function calculateAppendValue(runningTotal, value) {
     else return String(runningTotal) + String(value);
 }
 
+const calculateTotal = (runningTotal, operation, operand) => {
+    switch (operation) {
+        case '+':
+            return Number(runningTotal) + Number(operand);
+        case '-':
+            return runningTotal - operand;
+        case '*':
+            return runningTotal * operand;
+        case '/':
+            return runningTotal / operand;
+        default:
+            return runningTotal;
+    }
+};
+
+const immediateExecute = (runningTotal, operation) => {
+    switch (operation) {
+        case '%':
+            return runningTotal / 100;
+        case '+/-':
+            return runningTotal * -1;
+        case 'c':
+            return '0';
+        default:
+            return runningTotal;
+    }
+};
+
 module.exports = {
     operation, 
-    updateInput
+    updateInput,
+    calculateTotal,
+    immediateExecute
 };

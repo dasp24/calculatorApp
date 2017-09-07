@@ -12,7 +12,9 @@ import {
 
 import {
     operation,
-    updateInput
+    updateInput,
+    calculateTotal,
+    immediateExecute
 } from './helperFuncs'
 
 const initialState = {
@@ -52,34 +54,6 @@ export function reducer(state = initialState, action) {
             // also going to have a default, if it cant find the actions it does something specfic, like null or 0 or again.
         default:
             return state;
-    }
-}
-
-function calculateTotal(runningTotal, operation, operand) {
-    switch (operation) {
-        case '+':
-            return Number(runningTotal) + Number(operand)
-        case '-':
-            return runningTotal - operand
-        case '*':
-            return runningTotal * operand
-        case '/':
-            return runningTotal / operand
-        default:
-            return runningTotal
-    }
-}
-
-function immediateExecute(runningTotal, operation) {
-    switch (operation) {
-        case '%':
-            return runningTotal / 100
-        case '+/-':
-            return runningTotal * -1
-        case 'c':
-            return '0'
-        default:
-            return runningTotal
     }
 }
 
