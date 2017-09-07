@@ -141,3 +141,19 @@ describe('calculateTotal', () => {
         expect(calculateTotal(0,'/',10)).to.equal(0);
     });
 });
+
+describe('immediateExecute', () => {
+    it('returns the total - case(%)', () => {
+        expect(immediateExecute(50,'%')).to.equal(0.5);
+        expect(immediateExecute(0.5,'%')).to.equal(0.005);
+    });
+    it('returns the total - case(+/-)', () => {
+        expect(immediateExecute(2,'+/-')).to.equal(-2);
+        expect(immediateExecute(-100,'+/-')).to.equal(100);
+        expect(immediateExecute(2345,'+/-')).to.equal(-2345);
+    });
+    it('returns the total - case(c)', () => {
+        expect(immediateExecute(2,'c')).to.equal(0);
+        expect(immediateExecute(1010101,'c')).to.equal(0);
+    });
+});
