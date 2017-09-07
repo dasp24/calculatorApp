@@ -1,4 +1,6 @@
 const operation = (state, action) => {
+    const validOperationMatch = /[*|/|+|-]/;
+    if (action.operation.match(validOperationMatch))
     state.operation = action.operation;
     return state;
 };
