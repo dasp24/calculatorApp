@@ -11,7 +11,7 @@ Follow these steps to set up this project locally:
 
 `git clone https://github.com/dasp24/calculatorApp.git`
 
-`cd cd calculatorApp`
+`cd calculatorApp`
 
 `npm install`
 
