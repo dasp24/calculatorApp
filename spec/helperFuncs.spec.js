@@ -130,4 +130,14 @@ describe('calculateTotal', () => {
         expect(calculateTotal(0,'-',10)).to.equal(-10);
         expect(calculateTotal(10,'-',0)).to.equal(10);
     });
+    it('returns the total - case(*)', () => {
+        expect(calculateTotal(2,'*',3)).to.equal(6);
+        expect(calculateTotal(10,'*',10)).to.equal(100);
+        expect(calculateTotal(0,'*',10)).to.equal(0);
+    });
+    it('returns the total - case(/)', () => {
+        expect(calculateTotal(2,'/',4)).to.equal(0.5);
+        expect(calculateTotal(10,'/',10)).to.equal(1);
+        expect(calculateTotal(0,'/',10)).to.equal(0);
+    });
 });
